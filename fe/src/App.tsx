@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import { Landing } from "./components/oneway/Landing";
-import { Sender } from "./components/oneway/Sender";
-import { Receiver } from "./components/oneway/Receiver";
+import { Landing } from "./components/Landing";
+import { Sender } from "./components/twoway/Sender";
+import { Receiver } from "./components/twoway/Receiver";
 
 const App = () => {
   return (
