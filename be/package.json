@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc -b",
     "dev": "npm run build && npm run start",
-    "start": "node dist/oneway.js"
+    "start": "node dist/twoway.js"
   },
   "keywords": [],
   "author": "",

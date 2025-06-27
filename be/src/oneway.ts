@@ -13,17 +13,17 @@ server.on("connection", (ws: WebSocket) => {
     console.log(parsedData);
 
     if (parsedData.type === "sender") {
-      console.log("sender set")
+      console.log("sender set");
       sender = ws;
     }
 
     if (parsedData.type === "receiver") {
-      console.log("recevier set")
+      console.log("recevier set");
       recevier = ws;
     }
 
     if (parsedData.type === "offer") {
-      console.log("offer sent")
+      console.log("offer sent");
       if (ws !== sender) {
         return;
       }
@@ -33,7 +33,7 @@ server.on("connection", (ws: WebSocket) => {
     }
 
     if (parsedData.type === "answer") {
-      console.log("answer sent")
+      console.log("answer sent");
       if (ws !== recevier) {
         return;
       }
@@ -43,7 +43,7 @@ server.on("connection", (ws: WebSocket) => {
     }
 
     if (parsedData.type === "ice-candidate") {
-      console.log("ice candidtae sent")
+      console.log("ice candidtae sent");
       if (ws === recevier) {
         sender?.send(
           JSON.stringify({
@@ -61,6 +61,11 @@ server.on("connection", (ws: WebSocket) => {
         );
       }
     }
+  });
+
+  ws.on("close", () => {
+    recevier = null;
+    sender = null;
   });
 
   ws.on("error", (e) => console.log(e));
