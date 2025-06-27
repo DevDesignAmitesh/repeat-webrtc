@@ -12,12 +12,14 @@ server.on("connection", (ws: WebSocket) => {
     const { type, name, sdp, candidate } = parsedData;
 
     if (type === "register") {
+      console.log("register done", name);
       (ws as any).name = name;
       peers.set(name, ws);
     }
 
     if (["offer", "answer", "ice-candidate"].includes(type)) {
       const peer = peers.get(name);
+      console.log("type ", type, "send to ");
       peer?.send(
         JSON.stringify({
           type,
