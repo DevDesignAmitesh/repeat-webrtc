@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc-b",
+    "build": "tsc -b",
     "dev": "npm run build && npm run start",
     "start": "node dist/oneway.js"
   },
